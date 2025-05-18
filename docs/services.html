@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - JustTakeCare</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.js">
+</head>
+<body>
+    <!-- Include menu -->
+    <div id="menu-placeholder"></div>
+
+    <main>
+        <section class="services-section">
+            <h1>Our Services</h1>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Personal Care</h3>
+                    <p>Professional assistance with daily activities including bathing, dressing, and mobility support.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Companion Care</h3>
+                    <p>Companionship and emotional support services to keep your loved ones engaged and happy.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Home Care</h3>
+                    <p>Assistance with household tasks, meal preparation, and light housekeeping services.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-medkit"></i>
+                    <h3>Medical Support</h3>
+                    <p>Medication management, vital signs monitoring, and coordination with healthcare providers.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-walking"></i>
+                    <h3>Transportation</h3>
+                    <p>Safe and reliable transportation to medical appointments, social activities, and errands.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JustTakeCare</h3>
+                <p>Professional care services</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@justtakecare.org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 JustTakeCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Load menu
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

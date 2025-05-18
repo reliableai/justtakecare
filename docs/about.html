@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - JustTakeCare</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Include menu -->
+    <div id="menu-placeholder"></div>
+
+    <main>
+        <section class="about-section">
+            <h1>About Us</h1>
+            <div class="about-content">
+                <div class="about-leadership">
+                    <div class="leadership-card">
+                        <h2>Jackie Ocean</h2>
+                        <h3>Chairperson & CEO</h3>
+                        <p>Jackie Ocean is the visionary leader of JustTakeCare, bringing over 20 years of experience in healthcare and eldercare services. Under her leadership, JustTakeCare has become a trusted name in professional care services, dedicated to providing compassionate and reliable care to those in need.</p>
+                        <p>Email: <a href="mailto:jackieo@justtakecare.org">jackieo@justtakecare.org</a></p>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p>Welcome to JustTakeCare, your trusted partner in providing professional care services. We are dedicated to making a positive difference in the lives of those who need it most.</p>
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to provide compassionate, reliable, and professional care services that enhance the quality of life for our clients and their families.</p>
+                    
+                    <h2>Our Team</h2>
+                    <p>Our team consists of experienced and certified caregivers who are passionate about helping others. We carefully screen and train our staff to ensure they meet our high standards of care.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JustTakeCare</h3>
+                <p>Professional care services</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@justtakecare.org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 JustTakeCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Load menu
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

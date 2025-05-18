@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - JustTakeCare</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body>
+    <!-- Include menu -->
+    <div id="menu-placeholder"></div>
+
+    <main>
+        <section class="contact-section">
+            <h1>Contact Us</h1>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address</h3>
+                        <p>123 Care Street<br>
+                        Anytown, AT 12345<br>
+                        United States</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>(555) 123-4567</p>
+                        <p>(555) 987-6543 (Emergency)</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>info@justtakecare.org</p>
+                        <p>emergency@justtakecare.org</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Hours</h3>
+                        <p>Monday - Friday: 8:00 AM - 8:00 PM<br>
+                        Saturday: 9:00 AM - 5:00 PM<br>
+                        Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Send us a message</h2>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Your Phone (optional)">
+                        </div>
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="">Select Service Type</option>
+                                <option value="personal">Personal Care</option>
+                                <option value="companion">Companion Care</option>
+                                <option value="home">Home Care</option>
+                                <option value="medical">Medical Support</option>
+                                <option value="transportation">Transportation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="map" class="contact-map"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JustTakeCare</h3>
+                <p>Professional care services</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@justtakecare.org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 JustTakeCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Load menu
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu-placeholder').innerHTML = data;
+            });
+
+        // Initialize Google Maps
+        function initMap() {
+            const mapDiv = document.getElementById('map');
+            if (mapDiv) {
+                const map = new google.maps.Map(mapDiv, {
+                    center: { lat: 40.7128, lng: -74.0060 }, // Default to New York
+                    zoom: 13
+                });
+
+                // Add marker
+                const marker = new google.maps.Marker({
+                    position: { lat: 40.7128, lng: -74.0060 },
+                    map: map,
+                    title: 'JustTakeCare Office'
+                });
+            }
+        }
+
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to a server
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+</html>

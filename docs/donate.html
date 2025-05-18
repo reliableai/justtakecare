@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - JustTakeCare</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Stripe.js for payment processing -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Include menu -->
+    <div id="menu-placeholder"></div>
+
+    <main>
+        <section class="donate-section">
+            <h1>Support Our Mission</h1>
+            <p class="donate-intro">Your generous donation helps us provide compassionate care to those in need. Every contribution makes a difference in someone's life.</p>
+
+            <div class="donation-options">
+                <!-- One-time Donation -->
+                <div class="donation-option">
+                    <h2>One-time Donation</h2>
+                    <div class="donation-amounts">
+                        <div class="amount-button" data-amount="25">$25</div>
+                        <div class="amount-button" data-amount="50">$50</div>
+                        <div class="amount-button" data-amount="100">$100</div>
+                        <div class="amount-button" data-amount="250">$250</div>
+                        <div class="amount-button" data-amount="500">$500</div>
+                    </div>
+                    <div class="custom-amount">
+                        <input type="number" id="custom-amount" placeholder="Custom Amount" min="1">
+                        <button class="amount-button custom">Custom</button>
+                    </div>
+                    
+                    <!-- Payment Form -->
+                    <form id="donation-form" class="payment-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-element">Credit Card</label>
+                            <div id="card-element"></div>
+                            <div id="card-errors" role="alert"></div>
+                        </div>
+                        <button type="submit" id="donate-button" class="submit-button">Donate Now</button>
+                    </form>
+                </div>
+
+                <!-- Monthly Donation -->
+                <div class="donation-option">
+                    <h2>Monthly Donation</h2>
+                    <p>Support us regularly with a monthly donation</p>
+                    <div class="monthly-amounts">
+                        <div class="amount-button" data-amount="10">$10/month</div>
+                        <div class="amount-button" data-amount="25">$25/month</div>
+                        <div class="amount-button" data-amount="50">$50/month</div>
+                        <div class="amount-button" data-amount="100">$100/month</div>
+                    </div>
+                    <div class="monthly-form">
+                        <div class="form-group">
+                            <label for="monthly-name">Full Name</label>
+                            <input type="text" id="monthly-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthly-email">Email Address</label>
+                            <input type="email" id="monthly-email" required>
+                        </div>
+                        <button type="button" id="monthly-donate-button" class="submit-button">Set Up Monthly Donation</button>
+                    </div>
+                </div>
+
+                <!-- Other Donation Options -->
+                <div class="donation-option">
+                    <h2>Other Ways to Donate</h2>
+                    <div class="other-donation-options">
+                        <div class="option-card">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>PayPal</h3>
+                            <p>Donate using your PayPal account</p>
+                            <a href="#" class="donate-link">Donate via PayPal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JustTakeCare</h3>
+                <p>Professional care services</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donate.html">Donations</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@justtakecare.org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 JustTakeCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Load menu
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu-placeholder').innerHTML = data;
+            });
+
+        // Stripe configuration
+        const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
+        const elements = stripe.elements();
+        const card = elements.create('card');
+        card.mount('#card-element');
+
+        // Handle card errors
+        card.addEventListener('change', function(event) {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Donation form submission
+        const donationForm = document.getElementById('donation-form');
+        if (donationForm) {
+            donationForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const amount = document.querySelector('.amount-button.selected').dataset.amount || document.getElementById('custom-amount').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+
+                try {
+                    // Create payment intent
+                    const response = await fetch('/create-payment-intent', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ amount, name, email })
+                    });
+                    const { clientSecret } = await response.json();
+
+                    // Confirm payment
+                    const result = await stripe.confirmCardPayment(clientSecret, {
+                        payment_method: {
+                            card: card,
+                            billing_details: { name: name, email: email }
+                        }
+                    });
+
+                    if (result.error) {
+                        alert(result.error.message);
+                    } else {
+                        alert('Thank you for your donation!');
+                        donationForm.reset();
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        }
+
+        // Monthly donation button
+        const monthlyDonateButton = document.getElementById('monthly-donate-button');
+        if (monthlyDonateButton) {
+            monthlyDonateButton.addEventListener('click', async function() {
+                const amount = document.querySelector('.amount-button.selected').dataset.amount;
+                const name = document.getElementById('monthly-name').value;
+                const email = document.getElementById('monthly-email').value;
+
+                try {
+                    // Create subscription
+                    const response = await fetch('/create-subscription', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ amount, name, email })
+                    });
+                    const { clientSecret } = await response.json();
+
+                    // Confirm payment
+                    const result = await stripe.confirmCardPayment(clientSecret, {
+                        payment_method: {
+                            card: card,
+                            billing_details: { name: name, email: email }
+                        }
+                    });
+
+                    if (result.error) {
+                        alert(result.error.message);
+                    } else {
+                        alert('Thank you for your monthly donation!');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        }
+
+        // Amount selection
+        document.querySelectorAll('.amount-button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.amount-button').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
