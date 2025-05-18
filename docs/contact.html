@@ -26,61 +26,46 @@
                         Anytown, AT 12345<br>
                         United States</p>
                     </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p>(555) 123-4567</p>
-                        <p>(555) 987-6543 (Emergency)</p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>info@justtakecare.org</p>
-                        <p>emergency@justtakecare.org</p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <h3>Hours</h3>
-                        <p>Monday - Friday: 8:00 AM - 8:00 PM<br>
-                        Saturday: 9:00 AM - 5:00 PM<br>
-                        Sunday: Closed</p>
-                    </div>
                 </div>
-
                 <div class="contact-form">
-                    <h2>Send us a message</h2>
                     <form id="contact-form">
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Your Phone (optional)">
-                        </div>
-                        <div class="form-group">
-                            <select name="service" required>
-                                <option value="">Select Service Type</option>
-                                <option value="personal">Personal Care</option>
-                                <option value="companion">Companion Care</option>
-                                <option value="home">Home Care</option>
-                                <option value="medical">Medical Support</option>
-                                <option value="transportation">Transportation</option>
+                            <label for="subject">Subject:</label>
+                            <select id="subject" name="subject" required>
+                                <option value="report">Report Wildlife Emergency</option>
+                                <option value="volunteer">Volunteer Inquiry</option>
+                                <option value="donate">Donation Information</option>
+                                <option value="other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" required></textarea>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
                         <button type="submit" class="submit-button">Send Message</button>
                     </form>
                 </div>
             </div>
 
-            <div id="map" class="contact-map"></div>
+            <div class="contact-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.770316195534!2d-73.9996096848768!3d40.712770479326804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a316880499%3A0x559d6f4b7f809950!2s123%20Care%20St%2C%20Anytown%2C%20AT%2012345!5e0!3m2!1sen!2sus!4v1684434901000!5m2!1sen!2sus"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
         </section>
     </main>
 

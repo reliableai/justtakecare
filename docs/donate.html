@@ -15,76 +15,78 @@
 
     <main>
         <section class="donate-section">
-            <h1>Support Our Mission</h1>
-            <p class="donate-intro">Your generous donation helps us provide compassionate care to those in need. Every contribution makes a difference in someone's life.</p>
+            <div class="container">
+                <h1>Support Our Mission</h1>
+                <p class="donate-intro">Your generous donation helps us provide compassionate care to those in need. Every contribution makes a difference in someone's life.</p>
 
-            <div class="donation-options">
-                <!-- One-time Donation -->
-                <div class="donation-option">
-                    <h2>One-time Donation</h2>
-                    <div class="donation-amounts">
-                        <div class="amount-button" data-amount="25">$25</div>
-                        <div class="amount-button" data-amount="50">$50</div>
-                        <div class="amount-button" data-amount="100">$100</div>
-                        <div class="amount-button" data-amount="250">$250</div>
-                        <div class="amount-button" data-amount="500">$500</div>
+                <div class="donation-options">
+                    <!-- One-time Donation -->
+                    <div class="donation-option">
+                        <h2>One-time Donation</h2>
+                        <div class="donation-amounts">
+                            <div class="amount-button" data-amount="25">$25</div>
+                            <div class="amount-button" data-amount="50">$50</div>
+                            <div class="amount-button" data-amount="100">$100</div>
+                            <div class="amount-button" data-amount="250">$250</div>
+                            <div class="amount-button" data-amount="500">$500</div>
+                        </div>
+                        <div class="custom-amount">
+                            <input type="number" id="custom-amount" placeholder="Custom Amount" min="1">
+                            <button class="amount-button custom">Custom</button>
+                        </div>
+                        
+                        <!-- Payment Form -->
+                        <form id="donation-form" class="payment-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-element">Credit Card</label>
+                                <div id="card-element"></div>
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                            <button type="submit" id="donate-button" class="submit-button">Donate Now</button>
+                        </form>
                     </div>
-                    <div class="custom-amount">
-                        <input type="number" id="custom-amount" placeholder="Custom Amount" min="1">
-                        <button class="amount-button custom">Custom</button>
-                    </div>
-                    
-                    <!-- Payment Form -->
-                    <form id="donation-form" class="payment-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="card-element">Credit Card</label>
-                            <div id="card-element"></div>
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-                        <button type="submit" id="donate-button" class="submit-button">Donate Now</button>
-                    </form>
-                </div>
 
-                <!-- Monthly Donation -->
-                <div class="donation-option">
-                    <h2>Monthly Donation</h2>
-                    <p>Support us regularly with a monthly donation</p>
-                    <div class="monthly-amounts">
-                        <div class="amount-button" data-amount="10">$10/month</div>
-                        <div class="amount-button" data-amount="25">$25/month</div>
-                        <div class="amount-button" data-amount="50">$50/month</div>
-                        <div class="amount-button" data-amount="100">$100/month</div>
-                    </div>
-                    <div class="monthly-form">
-                        <div class="form-group">
-                            <label for="monthly-name">Full Name</label>
-                            <input type="text" id="monthly-name" required>
+                    <!-- Monthly Donation -->
+                    <div class="donation-option">
+                        <h2>Monthly Donation</h2>
+                        <p>Support us regularly with a monthly donation</p>
+                        <div class="monthly-amounts">
+                            <div class="amount-button" data-amount="10">$10/month</div>
+                            <div class="amount-button" data-amount="25">$25/month</div>
+                            <div class="amount-button" data-amount="50">$50/month</div>
+                            <div class="amount-button" data-amount="100">$100/month</div>
                         </div>
-                        <div class="form-group">
-                            <label for="monthly-email">Email Address</label>
-                            <input type="email" id="monthly-email" required>
+                        <div class="monthly-form">
+                            <div class="form-group">
+                                <label for="monthly-name">Full Name</label>
+                                <input type="text" id="monthly-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="monthly-email">Email Address</label>
+                                <input type="email" id="monthly-email" required>
+                            </div>
+                            <button type="button" id="monthly-donate-button" class="submit-button">Set Up Monthly Donation</button>
                         </div>
-                        <button type="button" id="monthly-donate-button" class="submit-button">Set Up Monthly Donation</button>
                     </div>
-                </div>
 
-                <!-- Other Donation Options -->
-                <div class="donation-option">
-                    <h2>Other Ways to Donate</h2>
-                    <div class="other-donation-options">
-                        <div class="option-card">
-                            <i class="fas fa-credit-card"></i>
-                            <h3>PayPal</h3>
-                            <p>Donate using your PayPal account</p>
-                            <a href="#" class="donate-link">Donate via PayPal</a>
+                    <!-- Other Donation Options -->
+                    <div class="donation-option">
+                        <h2>Other Ways to Donate</h2>
+                        <div class="other-donation-options">
+                            <div class="option-card">
+                                <i class="fas fa-credit-card"></i>
+                                <h3>PayPal</h3>
+                                <p>Donate using your PayPal account</p>
+                                <a href="#" class="donate-link">Donate via PayPal</a>
+                            </div>
                         </div>
                     </div>
                 </div>
