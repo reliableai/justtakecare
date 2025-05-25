@@ -30,6 +30,143 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Animal Food Eco-Friendly Page */
+.animal-food-hero {
+    background: linear-gradient(120deg, #e6f9ec 0%, #f9fff6 100%);
+    padding: 3rem 0 2rem 0;
+    margin-bottom: 2rem;
+}
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+.hero-text {
+    flex: 1 1 350px;
+}
+.hero-text h1 {
+    font-size: 2.2rem;
+    color: #388e3c;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.hero-text ul {
+    margin: 1rem 0 1.5rem 1rem;
+    color: #388e3c;
+}
+.hero-image {
+    flex: 1 1 300px;
+    text-align: center;
+}
+.hero-image img {
+}
+.package-image {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+.package-image img {
+    max-width: 180px;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border: 3px solid #4ecdc4;
+    background: #fff;
+}
+.package-caption {
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    color: #388e3c;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    background: #e8f5e9;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.8rem;
+    display: inline-block;
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+}
+.price-tag {
+    font-size: 2rem;
+    color: #388e3c;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+    background: #e8f5e9;
+    border-radius: 1rem;
+    padding: 0.4rem 1.4rem;
+    box-shadow: 0 2px 6px var(--shadow-color);
+}
+.price-tag span {
+    font-size: 1rem;
+    color: #4ecdc4;
+    font-weight: 400;
+}
+
+    max-width: 320px;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    border: 4px solid #b2dfdb;
+    background: #fff;
+}
+.cta-button {
+    display: inline-block;
+    background: #4ecdc4;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.9rem 2.2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    transition: background 0.2s, transform 0.2s;
+}
+.cta-button:hover {
+    background: #388e3c;
+    transform: translateY(-2px) scale(1.03);
+}
+.eco-box {
+    background: #e8f5e9;
+    border-left: 6px solid #4ecdc4;
+    margin: 2rem auto;
+    max-width: 700px;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    text-align: center;
+}
+.eco-box i {
+    font-size: 2rem;
+    color: #4ecdc4;
+    margin-bottom: 0.5rem;
+}
+.eco-box h3 {
+    color: #388e3c;
+    margin-bottom: 0.5rem;
+}
+.testimonial {
+    max-width: 600px;
+    margin: 2rem auto 0 auto;
+    background: #f1f8e9;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    font-style: italic;
+    color: #5d6d5d;
+    text-align: center;
+}
+.testimonial span {
+    display: block;
+    margin-top: 0.8rem;
+    color: #4ecdc4;
+    font-weight: bold;
+}
+
 /* Header and Navigation */
 header {
     background: var(--light-bg);

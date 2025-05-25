@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Food Subscription - JustTakeCare</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.js">
+</head>
+<body>
+    <!-- Include menu -->
+    <div id="menu-placeholder"></div>
+    <main style="margin-top: 90px;">
+    <section class="animal-food-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    <i class="fas fa-leaf" style="color:#4ecdc4"></i> Healthy & Organic Animal Food Subscription
+                </h1>
+                <p>
+                    Give your beloved animals the best nutrition with our weekly subscription service!
+                    We provide healthy and organic animal food, carefully sourced and tailored to your pet's needs.
+                    Our food is free from artificial additives, preservatives, and fillers—just pure, wholesome ingredients.
+                </p>
+                <ul>
+                    <li>100% organic and natural ingredients</li>
+                    <li>Eco-friendly packaging & delivery</li>
+                    <li>Perfect for dogs, cats, and other pets</li>
+                    <li>Flexible subscription—pause or cancel anytime</li>
+                </ul>
+                <div class="price-tag">$49 <span>/ week</span></div>
+<br>
+<a class="cta-button" href="contact.html">Subscribe Now</a>
+            </div>
+            <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80"
+         alt="Healthy pet food and happy pet" />
+    <div class="package-image">
+        <img src="assets/packaging.jpg" alt="Beautiful Jackie Just Take Cares packaging" />
+        <div class="package-caption">Jackie Just Takes Care</div>
+    </div>
+</div>
+        </div>
+    </section>
+    <section class="eco-box">
+        <i class="fas fa-recycle"></i>
+        <h3>Our Eco Commitment</h3>
+        <p>
+            We care for the planet as much as your pets. All our packaging is biodegradable, and we partner with local, sustainable farms.
+        </p>
+    </section>
+    <section class="testimonial">
+        <blockquote>
+            “My dog loves the food, and I love knowing it’s healthy and eco-friendly!”<br>
+            <span>– Happy Customer</span>
+        </blockquote>
+    </section>
+</main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JustTakeCare</h3>
+                <p>Professional care services</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@justtakecare.org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 JustTakeCare. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Load menu
+        fetch('menu.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('menu-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
